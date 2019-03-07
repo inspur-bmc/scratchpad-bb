@@ -15,11 +15,13 @@ SRC_URI = "git://github.com/inspur-bmc/scratchpad.git;branch=cmake"
 
 # Modify these as desired
 PV = "0.1+git${SRCPV}"
-SRCREV = "1af11f6f66b19a40231c5a7610527fe9b6ca880b"
+SRCREV = "0ffa0c4033722c445f9f0e1b307d06d9736ada22"
 
 S = "${WORKDIR}/git"
 
-inherit cmake
+inherit cmake systemd
+
+SYSTEMD_SERVICE_${PN} = "xyz.openbmc_project.scratchpad.service"
 
 # Specify any options you want to pass to the configure script using EXTRA_OECONF:
 EXTRA_OECONF = ""

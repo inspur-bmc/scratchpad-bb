@@ -11,21 +11,16 @@
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=e3fc50a88d0a364313df4b21ef20c29e"
 
-SRC_URI = "git://github.com/inspur-bmc/scratchpad.git"
+SRC_URI = "git://github.com/inspur-bmc/scratchpad.git;branch=cmake"
 
 # Modify these as desired
 PV = "0.1+git${SRCPV}"
-SRCREV = "0e0d3809f046fd0988b60e96e989b7e5a2e92aef"
+SRCREV = "1af11f6f66b19a40231c5a7610527fe9b6ca880b"
 
 S = "${WORKDIR}/git"
 
-inherit autotools pkgconfig
-inherit systemd
+inherit cmake
 
-DEPENDS += "autoconf-archive-native"
-DEPENDS += "systemd"
-
-SYSTEMD_SERVICE_${PN} += "xyz.openbmc_project.scratchpad.service"
 # Specify any options you want to pass to the configure script using EXTRA_OECONF:
 EXTRA_OECONF = ""
 

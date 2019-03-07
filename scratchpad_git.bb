@@ -15,13 +15,17 @@ SRC_URI = "git://github.com/inspur-bmc/scratchpad.git"
 
 # Modify these as desired
 PV = "0.1+git${SRCPV}"
-SRCREV = "5a058a797a05e38641d8f4260ecd524ffbd4b59e"
+SRCREV = "0e0d3809f046fd0988b60e96e989b7e5a2e92aef"
 
 S = "${WORKDIR}/git"
 
-inherit autotools
+inherit autotools pkgconfig
+inherit systemd
 
 DEPENDS += "autoconf-archive-native"
+DEPENDS += "systemd"
+
+SYSTEMD_SERVICE_${PN} += "xyz.openbmc_project.scratchpad.service"
 # Specify any options you want to pass to the configure script using EXTRA_OECONF:
 EXTRA_OECONF = ""
 
